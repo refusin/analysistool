@@ -21,10 +21,6 @@
 
 %p= show_flash
 
--#<p><div class="flash" id="notice">Location was successfully created.</div></p>
--#<p><div class="flash" id="warning">Location was successfully created.</div></p>
--#<p><div class="flash" id="error">Location was successfully created.</div></p>
-
 %p=link_to "Create new location", new_location_path
 
 %p=link_to "Delete all", destroy_all_locations_path, :method => :get, :confirm => 'Are you sure?'

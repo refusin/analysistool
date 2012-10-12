@@ -2,20 +2,17 @@
 
 = form_tag location_path(@location), :method => :put do
 
-  %table
-    %tbody
-      %tr
-        %td= label :location, :latitude, 'Latitude:'
-        %td= text_field :location, :latitude
-      %tr
-        %td= label :location, :longitude, 'Longitude:'
-        %td= text_field :location, :longitude
-      %tr
-        %td= label :location, :name, 'Name:'
-        %td= text_field :location, :name
-      %tr
-        %td= label :location, :description, 'Description:'
-        %td= text_area :location, :description
+  = label :location, :latitude, 'Latitude'
+  = text_field :location, :latitude
+
+  = label :location, :longitude, 'Longitude'
+  = text_field :location, :longitude
+
+  = label :location, :name, 'Name'
+  = text_field :location, :name
+
+  = label :location, :description, 'Description'
+  = text_area :location, :description
 
   %p
   = submit_tag 'Update Location Info'
