@@ -1,2 +1,20 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.haml</p>
+%h1.title Location
+
+= form_tag location_path, :method => :get do
+
+  = label :location, :latitude, 'Latitude'
+  = text_field :location, :latitude
+
+  = label :location, :longitude, 'Longitude'
+  = text_field :location, :longitude
+
+  = label :location, :name, 'Name'
+  = text_field :location, :name
+
+  = label :location, :description, 'Description'
+  = text_area :location, :description
+
+
+%p
+= link_to 'Back to location list', locations_path
+

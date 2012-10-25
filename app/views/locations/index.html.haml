@@ -1,5 +1,10 @@
 %h1.title All Locations of Interest
 
+.map
+  %div#map
+
+%input#locations{:type => "hidden", :value => @locations_json}
+
 %table#table
   %thead
     %tr
@@ -12,7 +17,7 @@
   %tbody
     - @locations.each do |location|
       %tr
-        %td= location.name
+        %td= link_to location.name, location_path(location)
         %td= location.latitude
         %td= location.longitude
         %td= location.description
@@ -24,3 +29,13 @@
 %p=link_to "Create new location", new_location_path
 
 %p=link_to "Delete all", destroy_all_locations_path, :method => :get, :confirm => 'Are you sure?'
+
+%p=link_to "Vericar Zona de interes", locations_verificar_path
+
+%p=link_to "Casco convexo", locations_casco_path
+
+= javascript_include_tag '/assets/maps/OpenLayers'
+= javascript_include_tag '/assets/maps/locations'
+
+:javascript
+  initMap($("#locations").val());

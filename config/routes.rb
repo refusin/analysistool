@@ -1,11 +1,7 @@
 Analysistool::Application.routes.draw do
-  get "locations/index"
-
-  get "locations/new"
-
-  get "locations/show"
-
-  get "locations/edit"
+  get "locations/verificar"
+  post "locations/verificar"
+  get "locations/casco"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -26,6 +22,15 @@ Analysistool::Application.routes.draw do
       get :destroy_all
     end
   end
+
+  resources :users do
+    resources :gps_samples
+  end
+
+  #resources :users do
+  #  resources :gps_samples
+ # end
+
 
   # Sample resource route with options:
   #   resources :products do

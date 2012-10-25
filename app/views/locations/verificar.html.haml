@@ -1,0 +1,48 @@
+%h1.title Verify Locations of Interest
+
+= form_tag locations_verificar_path, :method => :post do
+
+  = label :location, :latitude, 'Latitude'
+  = text_field :location, :latitude
+
+  = label :location, :longitude, 'Longitude'
+  = text_field :location, :longitude
+
+  %p
+    = submit_tag 'verificar'
+
+%p
+  = 'Latitude: '+@locationP.latitude.to_s+' '+'Longitude: '+@locationP.longitude.to_s
+  -if @output!=nil
+    -if @output==false
+      %p= 'No se encuentra dentro de algun sito de interes'
+    -else
+      %table#table
+        %thead
+          %tr
+            %th Name
+            %th Latitude
+            %th Longitude
+            %th Description
+            %th
+            %th
+          %tbody
+            - @output.each do |location|
+              %tr
+                %td= link_to location.name, location_path(location)
+                %td= location.latitude
+                %td= location.longitude
+                %td= location.description
+
+
+
+
+
+
+
+%p
+  = link_to 'Back to location list', locations_path
+
+
+
+

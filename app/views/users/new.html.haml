@@ -1,0 +1,12 @@
+%h1.title Create new Location of Interest
+
+= form_tag users_path, :method => :post do
+
+  = label :user, :name, 'Name'
+  = text_field :user, :name
+
+  %p
+  = submit_tag 'Save'
+
+%p
+= link_to 'Back to users list', users_path

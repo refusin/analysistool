@@ -1,0 +1,32 @@
+%h1.title Convex Hull
+
+= form_tag locations_verificar_path, :method => :post do
+  -if @output!=nil
+    %table#table
+      %thead
+        %tr
+          %th Name
+          %th Latitude
+          %th Longitude
+          %th Description
+          %th
+          %th
+          %tbody
+            - @output.each do |location|
+              %tr
+                %td= location.name
+                %td= location.latitude
+                %td= location.longitude
+                %td= location.description
+
+%p
+  = 'Perimetro del casco convexo: '+@perimetro.to_s+'m'
+%p
+  = 'La distancia mas lejana desde home es de: '+@farthest.to_s+'m'
+
+%p
+  = link_to 'Back to location list', locations_path
+
+
+
+

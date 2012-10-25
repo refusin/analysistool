@@ -1,0 +1,43 @@
+%h1.title User
+.map
+  %div#map
+
+%input#gps{:type => "hidden", :value => @gpsJson}
+= javascript_include_tag '/assets/maps/OpenLayers'
+= javascript_include_tag '/assets/maps/locations'
+
+:javascript
+  initMap($("#gps").val());
+
+= form_tag user_gps_samples_path(params[:id]), :method => :post, :multipart=>true do
+
+  = label :user, :name, 'User Name: '+@user.name.to_s
+  = file_field_tag :file
+  %input{:type => "hidden", :value=> @user.id, :name=>"id"}
+  = submit_tag 'Upload'
+
+%p
+= link_to 'Back to user list', users_path
+
+%p= show_flash
+
+%table#table
+  %thead
+    %tr
+      %th Time
+      %th Latidute
+      %th Longitude
+      %th
+      %th
+  %tbody
+    -if @coordenadas!=nil
+      - @coordenadas.each do |coordenada|
+        %tr
+          %td= coordenada.time
+          %td= coordenada.latitude
+          %td= coordenada.longitude
+
+
+%p
+= link_to 'Back to user list', users_path
+

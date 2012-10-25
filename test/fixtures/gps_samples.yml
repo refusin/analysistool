@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  iduser: MyString
+  integer: MyString
+  longitude: 1.5
+  latitude: 1.5
+  time: 1
+
+two:
+  iduser: MyString
+  integer: MyString
+  longitude: 1.5
+  latitude: 1.5
+  time: 1
