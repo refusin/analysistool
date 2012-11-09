@@ -20,7 +20,8 @@
     - @users.each do |user|
       %tr
         %td= link_to user.name, user_path(user)
-        %td= link_to "Upload JSON", user_path(user)
+        %td= link_to "Upload JSON places", user_path(user)
+        %td= link_to "Upload JSON activities", users_activity_path(user)
         %td= link_to "Delete", user_path(user), :method => :delete, :confirm => 'Are you sure?'
 
 %p= show_flash

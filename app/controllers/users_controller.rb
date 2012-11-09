@@ -42,6 +42,25 @@ class UsersController < ApplicationController
     @gpsJson=@coordenadas.to_json
   end
 
+  def activity
+    @user = User.find(params[:id])
+
+    @dTable = Array.new(25)
+    @dTable.each_index do |r|
+      @dTable[r] = Array.new(8,0)
+      @dTable[r][0] = (r.to_int-1).to_s + ":00"
+    end
+    @dTable[0] = ["Name","Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"]
+    act = ActivityCount.find_all_by_userID(params[:id])
+    act.each do |activ|
+      @dTable[Time.at(activ.time/1000).localtime.hour+1][Time.at(activ.time/1000).localtime.wday+1] += activ.count if activ.count != -1
+    end
+    @dTable=@dTable.to_json.html_safe
+
+  end
+
+
+
 
 
 end

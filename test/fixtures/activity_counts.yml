@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  time: 1
+  count: 1
+  userID: 1
+
+two:
+  time: 1
+  count: 1
+  userID: 1

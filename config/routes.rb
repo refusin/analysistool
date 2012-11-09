@@ -1,4 +1,6 @@
 Analysistool::Application.routes.draw do
+
+  match 'users/activity/:id' => 'users#activity', :as => :users_activity , :via => [:get, :post]
   get "locations/verificar"
   post "locations/verificar"
   get "locations/casco"
@@ -23,13 +25,17 @@ Analysistool::Application.routes.draw do
     end
   end
 
+  #resources :users, :path_names => { :edit => 'activity'}
+
   resources :users do
     resources :gps_samples
   end
 
-  #resources :users do
-  #  resources :gps_samples
- # end
+  resources :users do
+    resources :activity_counts
+  end
+
+
 
 
   # Sample resource route with options:

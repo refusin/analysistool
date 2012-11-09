@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121024192135) do
+ActiveRecord::Schema.define(:version => 20121108032328) do
+
+  create_table "activity_counts", :force => true do |t|
+    t.integer  "time"
+    t.integer  "count"
+    t.integer  "userID"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "gps_samples", :force => true do |t|
     t.string   "iduser"
